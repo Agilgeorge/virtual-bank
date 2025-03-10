@@ -27,8 +27,7 @@ const Services = () => (
           continue to improve
         </h1>
         <p className="text-left my-2 text-white font-light md:w-9/12 w-11/12 text-base">
-          The best choice for buying and selling your crypto assets, with the
-          various super friendly services we offer
+        The ultimate platform for managing your crypto assets seamlessly. Enjoy secure, fast, and user-friendly services designed for effortless buying, selling, and banking in the digital world.
         </p>
       </div>
 
@@ -37,19 +36,19 @@ const Services = () => (
           color="bg-[#2952E3]"
           title="Security gurantee"
           icon={<BsShieldFillCheck fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Your assets are protected with top-tier encryption and secure protocols, ensuring complete safety."
         />
         <ServiceCard
           color="bg-[#8945F8]"
           title="Best exchange rates"
           icon={<BiSearchAlt fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="We provide the most competitive exchange rates in the market, ensuring the best value for your transactions."
         />
         <ServiceCard
           color="bg-[#F84550]"
           title="Fastest transactions"
           icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Experience lightning-fast transaction speeds with minimal delays, making your payments seamless and efficient."
         />
       </div>
     </div>

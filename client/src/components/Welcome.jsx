@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -27,24 +28,46 @@ const Welcome = () => {
     setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
   };
 
-  const handleSubmit = () => {
-    const { addressTo, amount, keyword, message } = formData;
 
-    // Validate that the address is exactly 42 characters long
-    if (addressTo.length !== 42) {
-      alert("The account number must be exactly 42 characters long.");
-      return;
-    }
+const handleSubmit = () => {
+  const { addressTo, amount, keyword, message } = formData;
 
-    // Validate that all fields are filled
-    if (!addressTo || !amount || !keyword || !message) {
-      alert("Please fill in all fields before submitting.");
-      return;
-    }
+  if (addressTo.length !== 16) {
+    alert("The account number must be exactly 16 characters long.");
+    return;
+  }
 
-    // Simulate a transaction completion
-    alert("Transaction Complete: Test");
+  if (!addressTo || !amount || !keyword || !message) {
+    alert("Please fill in all fields before submitting.");
+    return;
+  }
+
+  const newTransaction = {
+    addressTo,
+    amount,
+    keyword,
+    message,
+    date: new Date().toLocaleString(),
   };
+
+  const existing = JSON.parse(localStorage.getItem("transactions")) || [];
+  existing.push(newTransaction);
+  localStorage.setItem("transactions", JSON.stringify(existing));
+
+  // 🔥 Cool animation popup
+  Swal.fire({
+    title: "Transaction Complete ✅",
+    text: "Your funds were sent successfully!",
+    icon: "success",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+  });
+
+  setFormData({ addressTo: "", amount: "", keyword: "", message: "" }); // Reset form
+};
+
+  
 
   return (
     <div className="flex w-full justify-center items-center">

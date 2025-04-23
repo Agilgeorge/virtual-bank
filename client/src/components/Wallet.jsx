@@ -6,6 +6,7 @@ import creditGif from "../assets/gifs/credit.gif";
 import dogGif from "../assets/gifs/dog.gif";
 import simpsonGif from "../assets/gifs/simpson.gif";
 import omileGif from "../assets/gifs/omile.gif";
+import money from "../assets/gifs/money.gif";
 
 const gifList = [
   boomerangGif,
@@ -13,6 +14,7 @@ const gifList = [
   dogGif,
   simpsonGif,
   omileGif,
+  money
 ];
 
 const getRandomGif = () => gifList[Math.floor(Math.random() * gifList.length)];
